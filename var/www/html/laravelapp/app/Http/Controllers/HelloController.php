@@ -59,12 +59,31 @@ class HelloController extends Controller
         return view('hello.add');
     }
 
+    /**
+     * 【DB INSERT】INSERT文利用ver
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function create(Request $request) {
-
         $param = [
                 'name' => $request->name,
                 'mail' => $request->mail,
                 'age'  => $request->age,
+        ];
+        DB::table('people')->insert($param);
+        return redirect('/hello');
+    }
+
+    /**
+     * 【DB INSERT】INSERT文利用ver
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function create_ver_useSql(Request $request) {
+        $param = [
+            'name' => $request->name,
+            'mail' => $request->mail,
+            'age'  => $request->age,
         ];
         DB::insert('insert into people (name, mail, age) values (:name, :mail, :age)', $param);
         return redirect('/hello');
