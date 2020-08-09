@@ -89,5 +89,31 @@ class HelloController extends Controller
         return redirect('/hello');
     }
 
+    /**
+     * 更新画面
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function edit(Request $request){
+        $param = ['id' => $request->id];
+        $item = DB::select('select * from people where id = :id', $param);
+        return view('hello.edit', ['form' => $item[0]]);
+    }
+
+    /**
+     * 更新実行
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function update(Request $request){
+        $param = [
+            'id' => $request->id,
+            'name' => $request->name,
+            'mail' => $request->mail,
+            'age'  => $request->age,
+        ];
+        DB::update('update people set `name`= :name, mail= :mail, age= :age where id= :id', $param);
+        return redirect('/hello');
+    }
 
 }
