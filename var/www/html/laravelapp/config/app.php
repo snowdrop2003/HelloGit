@@ -179,6 +179,8 @@ return [
          * Application Service Providers by Akada
          */
         App\Providers\HelloServiceProvider::class,
+        Way\Generators\GeneratorsServiceProvider::class,
+        Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
 
     ],
 
