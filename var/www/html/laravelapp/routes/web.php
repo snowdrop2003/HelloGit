@@ -41,6 +41,9 @@ Route::get('/', function () {
     Route::get('person/edit', 'PersonController@edit');
     Route::post('person/edit', 'PersonController@update');
 
+    Route::get('person/del', 'PersonController@delete');
+    Route::post('person/del', 'PersonController@remove');
+
 //     Route::get('hello', function () {
 //         return view('hello.index') ;
 //     });
