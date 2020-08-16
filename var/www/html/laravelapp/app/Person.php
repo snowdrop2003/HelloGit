@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Person extends Model
 {
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::addGlobalScope('age', function (Builder $builder){
-            $builder->where('age', '>', 20);
-        });
-    }
+//    protected static function boot()
+//    {
+//        parent::boot();
+//
+//        static::addGlobalScope('age', function (Builder $builder){
+//            $builder->where('age', '>', 20);
+//        });
+//    }
 
     public function getData()
     {

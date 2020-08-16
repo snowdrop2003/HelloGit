@@ -15,7 +15,7 @@ class PersonController extends Controller
     public function index(Request $request)
     {
         $items = Person::all();
-        return view('person.find',['items'=>$items]);
+        return view('person.index',['items'=>$items]);
     }
 
     public function search(Request $request)
