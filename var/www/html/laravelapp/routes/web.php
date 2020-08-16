@@ -32,6 +32,9 @@ Route::get('/', function () {
 
     Route::get('person', 'PersonController@index');
 
+    Route::get('person/find', 'PersonController@find');
+    Route::post('person/find', 'PersonController@search');
+
 //     Route::get('hello', function () {
 //         return view('hello.index') ;
 //     });

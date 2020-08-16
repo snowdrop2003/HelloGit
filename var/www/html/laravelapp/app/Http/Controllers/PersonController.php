@@ -7,9 +7,15 @@ use Illuminate\Http\Request;
 
 class PersonController extends Controller
 {
-    public function index(Request $request)
+    public function find(Request $request)
     {
-        $items = Person::all();
-        return view('person.index',['items' => $items]);
+        return view('person.find', ['input'=>'']);
+    }
+
+    public function search(Request $request)
+    {
+        $item  = Person::find($request->input);
+        $param = ['input'=> $request->input, 'item'=>$item];
+        return view('person.find',$param);
     }
 }
