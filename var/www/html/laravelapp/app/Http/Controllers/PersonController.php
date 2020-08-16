@@ -12,6 +12,12 @@ class PersonController extends Controller
         return view('person.find', ['input'=>'']);
     }
 
+    public function index(Request $request)
+    {
+        $items = Person::all();
+        return view('person.find',['items'=>$items]);
+    }
+
     public function search(Request $request)
     {
         $min = $request->input * 1;
