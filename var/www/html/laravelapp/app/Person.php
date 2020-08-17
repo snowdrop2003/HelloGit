@@ -13,6 +13,7 @@ class Person extends Model
       'mail' => 'email',
       'age'  => 'integer|min:0|max:150'
     );
+
     public function getData()
     {
         return $this->id.': '.$this->name. '('. $this->age . ')';
@@ -29,6 +30,11 @@ class Person extends Model
 
     public function scopeAgeLessThan($query, $n){
         return $query->where('age','<=',$n);
+    }
+
+    public function board()
+    {
+        return $this->hasOne('App\Board');
     }
 
 }
