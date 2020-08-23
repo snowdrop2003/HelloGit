@@ -50,6 +50,10 @@ Route::get('/', function () {
     Route::post('board/add', 'BoardController@create');
     Route::post('board/del', 'BoardController@remove');
 
+    Route::resource('rest', 'RestappController');
+
+    Route::get('hello/rest', 'HelloController@rest');
+
 //     Route::get('hello', function () {
 //         return view('hello.index') ;
 //     });
