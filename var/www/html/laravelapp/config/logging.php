@@ -47,6 +47,12 @@ return [
             'level' => 'debug',
         ],
 
+        'api' => [
+            'driver' => 'api',
+            'path' => storage_path('logs/api.'.date('Ymd').'.log'),
+            'level' => 'debug',
+        ],
+
         'daily' => [
             'driver' => 'daily',
             'path' => storage_path('logs/laravel.log'),

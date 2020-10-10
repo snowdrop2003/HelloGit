@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Restdata;
-use Illuminate\Support\Facades\Log;
 
-class RestappController extends Controller
+class Restapp2Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,25 +36,11 @@ class RestappController extends Controller
      */
     public function store(Request $request)
     {
-        \Log::info('single', ['（request->message）' => $request->message]);
-
         $restdata = new Restdata;
         $form = $request->all();
         unset($form['_token']);
         $restdata->fill($form)->save();
         return redirect('/rest');
-    }
-
-    public function storeapi(Request $request)
-    {
-
-        \Log::info('single', ['（request->message）' => $request->message]);
-
-        $restdata = new Restdata;
-        $form = $request->all();
-        unset($form['_token']);
-        $restdata->fill($form)->save();
-        return response()->json(['message'=>$request->message, 'url'=>$request->url()]);
     }
 
     /**
@@ -66,9 +51,6 @@ class RestappController extends Controller
      */
     public function show($id)
     {
-
-        Log::info('single', ['show_id' => $id]);
-
         $item = Restdata::find($id);
         return $item->toArray();
     }
